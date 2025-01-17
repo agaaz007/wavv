@@ -49,7 +49,7 @@ app.post('https://ojlt794cl3.execute-api.eu-north-1.amazonaws.com/dev/api/clubgo
 });
 
 // Endpoint to handle Club form
-app.post('https://ojlt794cl3.execute-api.eu-north-1.amazonaws.com/dev/api/club', async (req, res) => {
+app.post('https://ojlt794cl3.execute-api.eu-north-1.amazonaws.com/dev/api/clubs', async (req, res) => {
     const { clubName, email, pocPhone } = req.body;
     const id = uuidv4();
 
