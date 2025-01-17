@@ -176,7 +176,7 @@
             const email = e.target.email.value;
             const pocPhone = e.target.pocPhone.value;
 
-            const response = await fetch('https://ojlt794cl3.execute-api.eu-north-1.amazonaws.com/dev/api/club', {
+            const response = await fetch('https://ojlt794cl3.execute-api.eu-north-1.amazonaws.com/dev/api/clubs', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ clubName, email, pocPhone })
