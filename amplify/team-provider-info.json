@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-wavvmain2-dev-80fbb-authRole",
+      "UnauthRoleArn": "arn:aws:iam::992382728907:role/amplify-wavvmain2-dev-80fbb-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::992382728907:role/amplify-wavvmain2-dev-80fbb-authRole",
+      "Region": "eu-north-1",
+      "DeploymentBucketName": "amplify-wavvmain2-dev-80fbb-deployment",
+      "UnauthRoleName": "amplify-wavvmain2-dev-80fbb-unauthRole",
+      "StackName": "amplify-wavvmain2-dev-80fbb",
+      "StackId": "arn:aws:cloudformation:eu-north-1:992382728907:stack/amplify-wavvmain2-dev-80fbb/a5d19c40-d512-11ef-9c8f-0a3add464349",
+      "AmplifyAppId": "dtzxekm4oh5qf"
+    },
+    "categories": {
+      "function": {
+        "wavv": {
+          "deploymentBucketName": "amplify-wavvmain2-dev-80fbb-deployment",
+          "s3Key": "amplify-builds/wavv-6e6e4854546b6c32636f-build.zip"
+        }
+      },
+      "api": {
+        "apib4aabc58": {}
+      }
+    }
+  }
+}
