@@ -24,8 +24,8 @@ app.get('/', (req, res) => {
     res.send('Welcome to the Wavv Waitlist API');
 });
 
-// Endpoint to handle Club-goer form
-app.post('https://ojlt794cl3.execute-api.eu-north-1.amazonaws.com/dev/api/clubgoer', async (req, res) => {
+/// Endpoint to handle Club-goer form
+app.post('/api/clubgoer', async (req, res) => {
     const { fullName, email } = req.body;
     const id = uuidv4();
 
@@ -49,7 +49,7 @@ app.post('https://ojlt794cl3.execute-api.eu-north-1.amazonaws.com/dev/api/clubgo
 });
 
 // Endpoint to handle Club form
-app.post('https://ojlt794cl3.execute-api.eu-north-1.amazonaws.com/dev/api/clubs', async (req, res) => {
+app.post('/api/clubs', async (req, res) => {
     const { clubName, email, pocPhone } = req.body;
     const id = uuidv4();
 
@@ -71,7 +71,7 @@ app.post('https://ojlt794cl3.execute-api.eu-north-1.amazonaws.com/dev/api/clubs'
         console.error('Error saving data to DynamoDB:', error);
         res.status(500).send('Error saving data.');
     }
-});
+}
 
 // Start the server
 app.listen(port, () => {
