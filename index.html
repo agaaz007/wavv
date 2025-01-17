@@ -4,163 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wavv - Nightlife Experiences</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom, black, #0F0E17, #1A1A2E);
-            color: white;
-        }
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-        .fade-in.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="min-h-screen">
-    <!-- Navbar -->
-    <header class="fixed top-0 left-0 w-full z-50">
-        <nav class="flex items-center justify-between px-8 py-4 backdrop-blur-md bg-white/5 mx-0">
-            <div class="flex items-center">
-                <h1 class="text-lg font-bold">wavv</h1>
-            </div>
-            <div class="flex items-center space-x-4">
-                <a href="#" class="text-white hover:underline">Browse Clubs</a>
-                <a href="#" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-2 px-4 rounded-full hover:opacity-90">Sign Up 🍾</a>
+<body>
+    <header class="fixed-header">
+        <nav>
+            <div class="logo">wavv</div>
+            <div class="nav-links">
+                <a href="#" class="nav-link">Contact Us</a>
+                <a href="waitlist.html" class="nav-link btn-primary">Join Waitlist 🍾</a>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <main class="container mt-40">
-        <div class="flex flex-row items-center justify-between">
-            <div class="flex flex-col items-start max-w-2xl">
-                <h1 class="text-7xl font-extrabold mb-6 leading-tight">
+    <main class="container mt-48">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">
                     Never Miss<br>
                     <span>Another</span><br>
-                    <span id="animated-text" class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500"></span>
+                    <span id="animated-text" class="gradient-text"></span>
                 </h1>
-                <p class="text-gray-400 text-2xl mb-6">
+                <p class="hero-description">
                     Explore the hottest events and clubs in your city and see the exciting plans your friends are buzzing about.
                 </p>
-                <a href="https://instagram.com/wavv.app" target="_blank" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-4 px-10 w-[250px] rounded-md hover:opacity-90 text-center">
+                <a href="https://instagram.com/wavv.app" target="_blank" rel="noopener noreferrer" class="btn-primary mb-8">
                     Visit Our Instagram
                 </a>
             </div>
-            <div>
-                <img src="bp.png" alt="Decorative Graphic" class="w-[500px] opacity-90"> <!-- Add the path to your graphic here -->
+            <div class="hero-image">
+                <img src="images/bp.png" alt="Decorative Graphic" class="opacity-90">
             </div>
         </div>
     </main>
 
-    <!-- About Us Section -->
     <section class="container py-40">
-        <div class="flex flex-col md:flex-row items-start">
-            <div class="flex-1">
-                <h2 class="text-5xl font-extrabold mb-6 text-left">
-                    Who We Are
-                </h2>
-                <p class="text-xl text-gray-400 mb-6 leading-relaxed text-left">
-                    Wavv is India’s first social networking platform designed exclusively for nightlife enthusiasts and clubs. 
+        <div class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">Who We Are</h2>
+                <p class="section-description">
+                    Wavv is India's first social networking platform designed exclusively for nightlife enthusiasts and clubs. 
                     We connect Gen-Z and Millennials to curated clubbing experiences while empowering venues with real-time data and insights. 
-                    We’re more than a ticketing platform—we’re redefining how you experience nightlife.
+                    We're more than a ticketing platform—we're redefining how you experience nightlife.
                 </p>
             </div>
-            <div class="flex-1 flex justify-end">
-                <img src="cherry drink-rafiki.png" alt="About Us" class="rounded-lg shadow-lg w-[400px] opacity-90"> <!-- Add the path to your image here -->
+            <div class="about-image">
+                <img src="images/cherry-drink-rafiki.png" alt="About Us" class="rounded-lg shadow-lg opacity-90">
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="py-10" style="background: #6441A5; background: -webkit-linear-gradient(to right, #2a0845, #6441A5); background: linear-gradient(to right, #2a0845, #6441A5);">
-        <div class="text-center mb-16">
-            <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-            <dotlottie-player src="https://lottie.host/e93d9b01-4209-436e-8ee1-bbed9e10d82e/nej8IkOVdd.lottie" background="transparent" speed="1" style="width: 100px; height: 100px; margin: 0 auto; display: block;" loop autoplay></dotlottie-player>
-            <h2 class="text-6xl font-extrabold text-white">Powerful Features, Easy Events</h2>
-        </div>
-        <div class="space-y-20 max-w-full px-8">
-            <!-- Feature 1 -->
-            <div class="flex flex-col md:flex-row items-center justify-center fade-in md:space-x-10">
-                <div class="flex-1 text-left max-w-md">
-                    <h3 class="text-4xl font-bold mb-4 text-white">Spark Your Social Presence</h3>
-                    <p class="text-white text-xl">
-                        Drive awareness for your events and offers on Instagram, turning casual scrollers into loyal fans.
-                    </p>
+    <section class="features-section py-20">
+        <div class="container">
+            <h2 class="section-title text-center text-white mb-16">Powerful Features, Easy Events</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <h3 class="feature-title">Spark Your Social Presence</h3>
+                        <p class="feature-description">Drive awareness for your events and offers on Instagram, turning casual scrollers into loyal fans.</p>
+                    </div>
+                    <div class="feature-image">
+                        <img src="images/marketing-rafiki.png" alt="Spark Your Social Presence" class="rounded-lg shadow-lg bg-dark p-4">
+                    </div>
                 </div>
-                <div class="flex-1 max-w-md">
-                    <img src="Marketing-rafiki.png" alt="Poll feature" class="rounded-lg shadow-lg w-[300px] bg-[#0F0E17] p-4">
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <h3 class="feature-title">People First, Profits Follow</h3>
+                        <p class="feature-description">With our feedback feature, you can review and empower staff, ensuring every visit becomes a memorable experience.</p>
+                    </div>
+                    <div class="feature-image">
+                        <img src="images/social-media-pana.png" alt="People First, Profits Follow" class="rounded-lg shadow-lg bg-dark p-4">
+                    </div>
                 </div>
-            </div>
-            <!-- Feature 2 -->
-            <div class="flex flex-col md:flex-row items-center justify-center fade-in md:space-x-10">
-                <div class="flex-1 text-left max-w-md">
-                    <h3 class="text-4xl font-bold mb-4 text-white">People First, Profits Follow</h3>
-                    <p class="text-white text-xl">
-                        With our feedback feature, you can review and empower staff, ensuring every visit becomes a memorable experience.
-                    </p>
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <h3 class="feature-title">Serve the Right Crowd, See Real Returns</h3>
+                        <p class="feature-description">Don't waste energy on the wrong audience—focus on guests who truly value your offerings and boost your bottom line.</p>
+                    </div>
+                    <div class="feature-image">
+                        <img src="images/international-beer-day-bro.png" alt="Serve the Right Crowd, See Real Returns" class="rounded-lg shadow-lg bg-dark p-4">
+                    </div>
                 </div>
-                <div class="flex-1 max-w-md">
-                    <img src="Social media-pana.png" alt="Questionnaire feature" class="rounded-lg shadow-lg w-[300px] bg-[#0F0E17] p-4">
-                </div>
-            </div>
-            <!-- Feature 3 -->
-            <div class="flex flex-col md:flex-row items-center justify-center fade-in md:space-x-10">
-                <div class="flex-1 text-left max-w-md">
-                    <h3 class="text-4xl font-bold mb-4 text-white">Serve the Right Crowd, See Real Returns</h3>
-                    <p class="text-white text-xl">
-                        Don’t waste energy on the wrong audience—focus on guests who truly value your offerings and boost your bottom line.
-                    </p>
-                </div>
-                <div class="flex-1 max-w-md">
-                    <img src="International Beer Day-bro.png" alt="Invites feature" class="rounded-lg shadow-lg w-[300px] bg-[#0F0E17] p-4">
-                </div>
-            </div>
-            <!-- Feature 4 -->
-            <div class="flex flex-col md:flex-row items-center justify-center fade-in md:space-x-10">
-                <div class="flex-1 text-left max-w-md">
-                    <h3 class="text-4xl font-bold mb-4 text-white">Empower, Engage, Elevate</h3>
-                    <p class="text-white text-xl">
-                        We specialize in connecting you with clubs and young adults, ensuring your message resonates with the 18–25 demographic.
-                    </p>
-                </div>
-                <div class="flex-1 max-w-md">
-                    <img src="Bachelor party-amico.png" alt="Payment feature" class="rounded-lg shadow-lg w-[300px] bg-[#0F0E17] p-4">
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <h3 class="feature-title">Empower, Engage, Elevate</h3>
+                        <p class="feature-description">We specialize in connecting you with clubs and young adults, ensuring your message resonates with the 18–25 demographic.</p>
+                    </div>
+                    <div class="feature-image">
+                        <img src="images/bachelor-party-amico.png" alt="Empower, Engage, Elevate" class="rounded-lg shadow-lg bg-dark p-4">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Launching Soon Section -->
-    <section class="container py-20">
-        <div class="flex flex-col md:flex-row items-center">
-            <div class="flex-1">
-                <img src="launch.jpeg" alt="Launching Soon" class="rounded-lg shadow-lg w-full"> <!-- Replace with your image path -->
+    <section class="container py-32">
+        <div class="launch-section">
+            <div class="launch-image">
+                <img src="images/launch.jpeg" alt="Launching Soon" class="rounded-lg shadow-lg w-full">
             </div>
-            <div class="flex-1 text-left pl-10">
-                <h2 class="text-6xl font-extrabold mb-6">Launching Soon</h2>
-                <p class="text-xl text-gray-400 mb-6 leading-relaxed">
+            <div class="launch-content">
+                <h2 class="section-title">Launching Soon</h2>
+                <p class="section-description">
                     It's not here yet, but we'll let you in on a secret. It's coming really, really soon. 
                     So sit tight and check back on July 31. You just might see something that will blow your socks off!
                 </p>
@@ -171,48 +116,20 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-10 bg-[#0F0E17] text-gray-400">
-        <div class="container flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0">
-                <h1 class="text-lg font-bold text-white">wavv</h1>
-                <p class="mt-2">© 2025 Wavv. All rights reserved.</p>
-            </div>
-            <div class="text-center">
-                <p>Phone: <a href="tel:+1234567890" class="text-white">+91 9752542742</a></p>
-                <p>       <a href="tel:+1234567890" class="text-white">+91 9650040977</a></p>
-
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h1 class="text-lg font-bold text-white">wavv</h1>
+                    <p class="mt-2">© 2025 Wavv. All rights reserved.</p>
+                </div>
+                <div class="footer-contact">
+                    <p>Phone: <a href="tel:+919752542742" class="text-white">+91 9752542742</a></p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        const words = ["Party", "DJ Night", "Event", "Saturday", "Friday Night"];
-        const animatedText = document.getElementById("animated-text");
-        let index = 0;
-
-        function displayNextWord() {
-            animatedText.textContent = words[index];
-            animatedText.classList.remove("fade-in");
-            void animatedText.offsetWidth; // Trigger reflow for animation restart
-            animatedText.classList.add("fade-in");
-
-            index = (index + 1) % words.length;
-        }
-
-        setInterval(displayNextWord, 1500); // Change words every 1.5 seconds
-        displayNextWord(); // Initial call
-
-        // Scroll animation for features
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        });
-
-        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
