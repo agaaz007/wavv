@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 });
 
 // Endpoint to handle Club-goer form
-app.post('/api/clubgoer', async (req, res) => {
+app.post('https://ojlt794cl3.execute-api.eu-north-1.amazonaws.com/dev/api/clubgoer', async (req, res) => {
     const { fullName, email } = req.body;
     const id = uuidv4();
 
@@ -49,7 +49,7 @@ app.post('/api/clubgoer', async (req, res) => {
 });
 
 // Endpoint to handle Club form
-app.post('/api/club', async (req, res) => {
+app.post('https://ojlt794cl3.execute-api.eu-north-1.amazonaws.com/dev/api/club', async (req, res) => {
     const { clubName, email, pocPhone } = req.body;
     const id = uuidv4();
 
