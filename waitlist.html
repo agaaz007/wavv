@@ -9,93 +9,114 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom, black, #0F0E17, #1A1A2E);
-            color: white;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            background-size: 4px 4px;
+            background-color: #0F0E17; /* Dark background */
         }
-        .toggle-button.active {
-            background: linear-gradient(to right, #805ad5, #d53f8c);
-            color: white;
-        }
-        .toggle-button.inactive {
-            background: #1a202c;
-            color: #718096;
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
         }
     </style>
 </head>
 <body>
-    <div class="w-full max-w-md p-6 bg-black/60 rounded-lg shadow-md">
-        <!-- Back to Home -->
-        <div class="mb-6">
-            <a href="/" class="text-gray-400 text-sm hover:text-white">&larr; Back to Home</a>
-        </div>
-        
-        <!-- Title and Subtitle -->
-        <h1 class="text-center text-2xl md:text-3xl font-extrabold mb-2">
-            wavv
-        </h1>
-        <p class="text-center text-gray-400 text-sm mb-6">THE FUTURE OF NIGHTLIFE</p>
-        <h2 class="text-center text-4xl font-extrabold mb-6">
-            Join the <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Waitlist</span>
+    <!-- Back to Home -->
+    <div class="absolute top-6 left-6">
+        <a href="/" class="text-gray-400 text-lg hover:text-white">&larr; Back to Home</a>
+    </div>
+
+    <div class="w-full max-w-md p-6">
+        <!-- Title -->
+        <h1 class="text-center text-4xl font-bold text-white mb-4">wavv</h1>
+        <p class="text-center text-gray-400 text-lg mb-6">THE FUTURE OF NIGHTLIFE</p>
+        <h2 class="text-center text-5xl font-extrabold mb-8">
+            <span class="text-white">Join the</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Waitlist</span>
         </h2>
 
         <!-- Toggle Buttons -->
-        <div class="flex justify-center space-x-4 mb-6">
-            <button id="clubGoerToggle" class="toggle-button active py-2 px-4 rounded-lg font-semibold">
+        <div class="flex justify-center space-x-4 mb-8">
+            <button id="clubGoerToggle" class="w-1/2 py-3 rounded-full text-xl text-white font-semibold transition-all bg-purple-600">
                 Club-goer
             </button>
-            <button id="clubToggle" class="toggle-button inactive py-2 px-4 rounded-lg font-semibold">
+            <button id="clubToggle" class="w-1/2 py-3 rounded-full text-xl text-zinc-300 font-semibold transition-all bg-zinc-800">
                 Club
             </button>
         </div>
 
-        <!-- Form -->
-        <form id="clubGoerForm" class="space-y-4">
+        <!-- Forms -->
+        <form id="clubGoerForm" class="space-y-8">
             <!-- Full Name -->
             <div class="relative">
-                <input type="text" name="fullName" placeholder="Full name..." required
-                    class="w-full bg-black/50 text-gray-200 py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <span class="input-icon text-zinc-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4s-4 1.79-4 4 1.79 4 4 4z"></path>
+                        <path d="M12 14c-4 0-7 2-7 4v1h14v-1c0-2-3-4-7-4z"></path>
+                    </svg>
+                </span>
+                <input type="text" placeholder="Full name..." class="w-full h-14 pl-14 pr-4 bg-zinc-900/50 text-white rounded-lg border border-zinc-800 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-purple-500 text-lg">
             </div>
             <!-- Email -->
             <div class="relative">
-                <input type="email" name="email" placeholder="Email address..." required
-                    class="w-full bg-black/50 text-gray-200 py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <span class="input-icon text-zinc-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" d="M16.999,4.975L16.999,4.975C16.999,4.975,16.999,4.975,16.999,4.975c-0.419-0.4-0.979-0.654-1.604-0.654H4.606c-0.584,0-1.104,0.236-1.514,0.593C3.076,4.928,3.05,4.925,3.037,4.943C3.034,4.945,3.035,4.95,3.032,4.953C2.574,5.379,2.276,5.975,2.276,6.649v6.702c0,1.285,1.045,2.329,2.33,2.329h10.79c1.285,0,2.328-1.044,2.328-2.329V6.649C17.724,5.989,17.441,5.399,16.999,4.975z M15.396,5.356c0.098,0,0.183,0.035,0.273,0.055l-5.668,4.735L4.382,5.401c0.075-0.014,0.145-0.045,0.224-0.045H15.396z M16.688,13.351c0,0.712-0.581,1.294-1.293,1.294H4.606c-0.714,0-1.294-0.582-1.294-1.294V6.649c0-0.235,0.081-0.445,0.192-0.636l6.162,5.205c0.096,0.081,0.215,0.122,0.334,0.122c0.118,0,0.235-0.041,0.333-0.12l6.189-5.171c0.099,0.181,0.168,0.38,0.168,0.6V13.351z"></path>
+                    </svg>
+                </span>
+                <input type="email" placeholder="Email address..." class="w-full h-14 pl-14 pr-4 bg-zinc-900/50 text-white rounded-lg border border-zinc-800 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-purple-500 text-lg">
             </div>
-            <!-- Submit Button -->
-            <button type="submit"
-                class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 px-4 rounded-lg font-semibold hover:opacity-90">
+            <!-- Submit -->
+            <button class="w-full h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-bold text-xl text-white hover:opacity-90">
                 Join Waitlist &rarr;
             </button>
         </form>
 
-        <form id="clubForm" class="hidden space-y-4">
+        <form id="clubForm" class="space-y-8 hidden">
             <!-- Club Name -->
             <div class="relative">
-                <input type="text" name="clubName" placeholder="Club name..." required
-                    class="w-full bg-black/50 text-gray-200 py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <span class="input-icon text-zinc-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" d="M15.62,1.825H4.379v1.021h0.13c-0.076,0.497-0.13,1.005-0.13,1.533c0,3.998,2.246,7.276,5.11,7.629v5.145
+                        H7.445c-0.282,0-0.511,0.229-0.511,0.512s0.229,0.511,0.511,0.511h5.109c0.281,0,0.512-0.229,0.512-0.511s-0.23-0.512-0.512-0.512
+                        h-2.043v-5.145c2.864-0.353,5.109-3.631,5.109-7.629c0-0.528-0.054-1.036-0.129-1.533h0.129V1.825z M10,11.087
+                        c-2.586,0-4.684-3.003-4.684-6.707c0-0.53,0.057-1.039,0.138-1.533h9.092c0.081,0.495,0.139,1.003,0.139,1.533
+                        C14.685,8.084,12.586,11.087,10,11.087z"></path>
+                
+                    </svg>
+                </span>
+                <input type="text" placeholder="Club name..." class="w-full h-14 pl-14 pr-4 bg-zinc-900/50 text-white rounded-lg border border-zinc-800 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-purple-500 text-lg">
             </div>
             <!-- Email -->
             <div class="relative">
-                <input type="email" name="email" placeholder="Email address..." required
-                    class="w-full bg-black/50 text-gray-200 py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <span class="input-icon text-zinc-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" d="M16.999,4.975L16.999,4.975C16.999,4.975,16.999,4.975,16.999,4.975c-0.419-0.4-0.979-0.654-1.604-0.654H4.606c-0.584,0-1.104,0.236-1.514,0.593C3.076,4.928,3.05,4.925,3.037,4.943C3.034,4.945,3.035,4.95,3.032,4.953C2.574,5.379,2.276,5.975,2.276,6.649v6.702c0,1.285,1.045,2.329,2.33,2.329h10.79c1.285,0,2.328-1.044,2.328-2.329V6.649C17.724,5.989,17.441,5.399,16.999,4.975z M15.396,5.356c0.098,0,0.183,0.035,0.273,0.055l-5.668,4.735L4.382,5.401c0.075-0.014,0.145-0.045,0.224-0.045H15.396z M16.688,13.351c0,0.712-0.581,1.294-1.293,1.294H4.606c-0.714,0-1.294-0.582-1.294-1.294V6.649c0-0.235,0.081-0.445,0.192-0.636l6.162,5.205c0.096,0.081,0.215,0.122,0.334,0.122c0.118,0,0.235-0.041,0.333-0.12l6.189-5.171c0.099,0.181,0.168,0.38,0.168,0.6V13.351z"></path>
+                    
+                    </svg>
+                </span>
+                <input type="email" placeholder="Email address..." class="w-full h-14 pl-14 pr-4 bg-zinc-900/50 text-white rounded-lg border border-zinc-800 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-purple-500 text-lg">
             </div>
-            <!-- Phone Number -->
+            <!-- Phone -->
             <div class="relative">
-                <input type="tel" name="pocPhone" placeholder="Phone number of POC..." required
-                    class="w-full bg-black/50 text-gray-200 py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <span class="input-icon text-zinc-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor"  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                    </svg>
+                </span>
+                <input type="tel" placeholder="Phone number of POC..." class="w-full h-14 pl-14 pr-4 bg-zinc-900/50 text-white rounded-lg border border-zinc-800 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-purple-500 text-lg">
             </div>
-            <!-- Submit Button -->
-            <button type="submit"
-                class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 px-4 rounded-lg font-semibold hover:opacity-90">
+            <!-- Submit -->
+            <button class="w-full h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-bold text-xl text-white hover:opacity-90">
                 Join Waitlist &rarr;
             </button>
         </form>
 
-        <!-- Footer -->
-        <p class="text-center text-gray-400 text-sm mt-6">
+        <p class="text-center text-gray-400 text-lg mt-6">
             Wavv is launching July 31st.<br>
             Follow us on <a href="https://instagram.com/wavv.app" class="text-purple-400 hover:text-pink-400" target="_blank">Instagram</a> for updates.
         </p>
@@ -107,24 +128,26 @@
         const clubGoerForm = document.getElementById('clubGoerForm');
         const clubForm = document.getElementById('clubForm');
 
-        // Event Listeners for toggling forms
-        clubGoerToggle.addEventListener('click', () => {
+        function switchToClubGoer() {
             clubGoerForm.classList.remove('hidden');
             clubForm.classList.add('hidden');
-            clubGoerToggle.classList.add('active');
-            clubGoerToggle.classList.remove('inactive');
-            clubToggle.classList.add('inactive');
-            clubToggle.classList.remove('active');
-        });
+            clubGoerToggle.classList.add('bg-purple-600', 'text-white');
+            clubGoerToggle.classList.remove('bg-zinc-800', 'text-zinc-300');
+            clubToggle.classList.add('bg-zinc-800', 'text-zinc-300');
+            clubToggle.classList.remove('bg-purple-600', 'text-white');
+        }
 
-        clubToggle.addEventListener('click', () => {
+        function switchToClub() {
             clubGoerForm.classList.add('hidden');
             clubForm.classList.remove('hidden');
-            clubToggle.classList.add('active');
-            clubToggle.classList.remove('inactive');
-            clubGoerToggle.classList.add('inactive');
-            clubGoerToggle.classList.remove('active');
-        });
+            clubToggle.classList.add('bg-purple-600', 'text-white');
+            clubToggle.classList.remove('bg-zinc-800', 'text-zinc-300');
+            clubGoerToggle.classList.add('bg-zinc-800', 'text-zinc-300');
+            clubGoerToggle.classList.remove('bg-purple-600', 'text-white');
+        }
+
+        clubGoerToggle.addEventListener('click', switchToClubGoer);
+        clubToggle.addEventListener('click', switchToClub);
     </script>
 </body>
 </html>
