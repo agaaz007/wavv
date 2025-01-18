@@ -47,7 +47,12 @@
             </div>
             <div class="flex items-center space-x-4">
                 <a href="#" class="text-white hover:underline">Contact Us</a>
-                <a href="waitlist.html" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-2 px-4 rounded-full hover:opacity-90">Join Waitlist 🍾</a>
+                <!-- Updated Join Waitlist Button -->
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfTADnL7Q3t9H8TRRFHK2Nc-koFS0IY5Wb_pQizbDQMEOX2sA/viewform?usp=sharing"
+                   target="_blank"
+                   class="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-2 px-4 rounded-full hover:opacity-90">
+                    Join Waitlist 🍾
+                </a>
             </div>
         </nav>
     </header>
@@ -100,75 +105,6 @@
             <dotlottie-player src="https://lottie.host/e93d9b01-4209-436e-8ee1-bbed9e10d82e/nej8IkOVdd.lottie" background="transparent" speed="1" style="width: 100px; height: 100px; margin: 0 auto; display: block;" loop autoplay></dotlottie-player>
             <h2 class="text-6xl font-extrabold text-white">Powerful Features, Easy Events</h2>
         </div>
-        <div class="space-y-20 max-w-full px-8">
-            <!-- Feature 1 -->
-            <div class="flex flex-col md:flex-row items-center justify-center fade-in md:space-x-10">
-                <div class="flex-1 text-left max-w-md">
-                    <h3 class="text-4xl font-bold mb-4 text-white">Spark Your Social Presence</h3>
-                    <p class="text-white text-xl">
-                        Drive awareness for your events and offers on Instagram, turning casual scrollers into loyal fans.
-                    </p>
-                </div>
-                <div class="flex-1 max-w-md">
-                    <img src="Marketing-rafiki.png" alt="Poll feature" class="rounded-lg shadow-lg w-[300px] bg-[#0F0E17] p-4">
-                </div>
-            </div>
-            <!-- Feature 2 -->
-            <div class="flex flex-col md:flex-row items-center justify-center fade-in md:space-x-10">
-                <div class="flex-1 text-left max-w-md">
-                    <h3 class="text-4xl font-bold mb-4 text-white">People First, Profits Follow</h3>
-                    <p class="text-white text-xl">
-                        With our feedback feature, you can review and empower staff, ensuring every visit becomes a memorable experience.
-                    </p>
-                </div>
-                <div class="flex-1 max-w-md">
-                    <img src="Social media-pana.png" alt="Questionnaire feature" class="rounded-lg shadow-lg w-[300px] bg-[#0F0E17] p-4">
-                </div>
-            </div>
-            <!-- Feature 3 -->
-            <div class="flex flex-col md:flex-row items-center justify-center fade-in md:space-x-10">
-                <div class="flex-1 text-left max-w-md">
-                    <h3 class="text-4xl font-bold mb-4 text-white">Serve the Right Crowd, See Real Returns</h3>
-                    <p class="text-white text-xl">
-                        Don’t waste energy on the wrong audience—focus on guests who truly value your offerings and boost your bottom line.
-                    </p>
-                </div>
-                <div class="flex-1 max-w-md">
-                    <img src="International Beer Day-bro.png" alt="Invites feature" class="rounded-lg shadow-lg w-[300px] bg-[#0F0E17] p-4">
-                </div>
-            </div>
-            <!-- Feature 4 -->
-            <div class="flex flex-col md:flex-row items-center justify-center fade-in md:space-x-10">
-                <div class="flex-1 text-left max-w-md">
-                    <h3 class="text-4xl font-bold mb-4 text-white">Empower, Engage, Elevate</h3>
-                    <p class="text-white text-xl">
-                        We specialize in connecting you with clubs and young adults, ensuring your message resonates with the 18–25 demographic.
-                    </p>
-                </div>
-                <div class="flex-1 max-w-md">
-                    <img src="Bachelor party-amico.png" alt="Payment feature" class="rounded-lg shadow-lg w-[300px] bg-[#0F0E17] p-4">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Launching Soon Section -->
-    <section class="container py-20">
-        <div class="flex flex-col md:flex-row items-center">
-            <div class="flex-1">
-                <img src="launch.jpeg" alt="Launching Soon" class="rounded-lg shadow-lg w-full"> <!-- Replace with your image path -->
-            </div>
-            <div class="flex-1 text-left pl-10">
-                <h2 class="text-6xl font-extrabold mb-6">Launching Soon</h2>
-                <p class="text-xl text-gray-400 mb-6 leading-relaxed">
-                    It's not here yet, but we'll let you in on a secret. It's coming really, really soon. 
-                    So sit tight and check back on July 31. You just might see something that will blow your socks off!
-                </p>
-                <p class="text-gray-400 text-lg">
-                    Really excited to get in touch with us? Follow us at <strong>@wavv.app</strong> on Instagram for updates and news.
-                </p>
-            </div>
-        </div>
     </section>
 
     <!-- Footer -->
@@ -200,17 +136,6 @@
 
         setInterval(displayNextWord, 1500); // Change words every 1.5 seconds
         displayNextWord(); // Initial call
-
-        // Scroll animation for features
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        });
-
-        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
