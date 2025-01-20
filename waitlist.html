@@ -157,15 +157,15 @@ clubToggle.addEventListener('click', () => {
         // Club Form Submission
         clubForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const clubName = e.target.clubName.value;
+            const name = e.target.clubName.value;
             const email = e.target.email.value;
-            const pocPhone = e.target.pocPhone.value;
+            const phone = e.target.pocPhone.value;
 
             try {
                 const response = await fetch('https://px2mgczmk0.execute-api.eu-north-1.amazonaws.com/dev/add_club', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ clubName, email, pocPhone }),
+                    body: JSON.stringify({ name, email, phone }),
                 });
 
                 if (response.ok) {
