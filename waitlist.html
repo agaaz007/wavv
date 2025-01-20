@@ -38,18 +38,17 @@
             background-color: #f44336;
             color: white;
         }
+        .error-details {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #ffeb3b;
+            white-space: pre-wrap;
+        }
     </style>
 </head>
 <body>
-    <!-- Back to Home -->
-    <div class="absolute top-6 left-6">
-        <a href="/" class="text-gray-400 text-lg hover:text-white">&larr; Back to Home</a>
-    </div>
-
     <div class="w-full max-w-md p-6">
-        <!-- Title -->
         <h1 class="text-center text-4xl font-bold text-white mb-4">wavv</h1>
-        <p class="text-center text-gray-400 text-lg mb-6">THE FUTURE OF NIGHTLIFE</p>
         <h2 class="text-center text-5xl font-extrabold mb-8">
             <span class="text-white">Join the</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Waitlist</span>
         </h2>
@@ -66,33 +65,25 @@
 
         <!-- Club-goer Form -->
         <form id="clubGoerForm" class="space-y-8">
-            <div class="relative">
-                <input type="text" name="fullName" placeholder="Full name..." class="w-full h-14 pl-4 bg-zinc-900/50 text-white rounded-lg border placeholder:text-zinc-600">
-            </div>
-            <div class="relative">
-                <input type="email" name="email" placeholder="Email address..." class="w-full h-14 pl-4 bg-zinc-900/50 text-white rounded-lg border placeholder:text-zinc-600">
-            </div>
+            <input type="text" name="fullName" placeholder="Full name..." class="w-full h-14 pl-4 bg-zinc-900/50 text-white rounded-lg border placeholder:text-zinc-600">
+            <input type="email" name="email" placeholder="Email address..." class="w-full h-14 pl-4 bg-zinc-900/50 text-white rounded-lg border placeholder:text-zinc-600">
             <button type="submit" class="w-full h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-bold text-xl text-white">
                 Join Waitlist &rarr;
             </button>
             <div id="clubGoerMessage" class="message"></div>
+            <pre id="clubGoerErrorDetails" class="error-details"></pre>
         </form>
 
         <!-- Club Form -->
         <form id="clubForm" class="space-y-8 hidden">
-            <div class="relative">
-                <input type="text" name="clubName" placeholder="Club name..." class="w-full h-14 pl-4 bg-zinc-900/50 text-white rounded-lg border placeholder:text-zinc-600">
-            </div>
-            <div class="relative">
-                <input type="email" name="email" placeholder="Email address..." class="w-full h-14 pl-4 bg-zinc-900/50 text-white rounded-lg border placeholder:text-zinc-600">
-            </div>
-            <div class="relative">
-                <input type="tel" name="pocPhone" placeholder="Phone number of POC..." class="w-full h-14 pl-4 bg-zinc-900/50 text-white rounded-lg border placeholder:text-zinc-600">
-            </div>
+            <input type="text" name="clubName" placeholder="Club name..." class="w-full h-14 pl-4 bg-zinc-900/50 text-white rounded-lg border placeholder:text-zinc-600">
+            <input type="email" name="email" placeholder="Email address..." class="w-full h-14 pl-4 bg-zinc-900/50 text-white rounded-lg border placeholder:text-zinc-600">
+            <input type="tel" name="pocPhone" placeholder="Phone number of POC..." class="w-full h-14 pl-4 bg-zinc-900/50 text-white rounded-lg border placeholder:text-zinc-600">
             <button type="submit" class="w-full h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-bold text-xl text-white">
                 Join Waitlist &rarr;
             </button>
             <div id="clubMessage" class="message"></div>
+            <pre id="clubErrorDetails" class="error-details"></pre>
         </form>
     </div>
 
@@ -102,25 +93,19 @@
         const clubGoerForm = document.getElementById('clubGoerForm');
         const clubForm = document.getElementById('clubForm');
         const clubGoerMessage = document.getElementById('clubGoerMessage');
+        const clubGoerErrorDetails = document.getElementById('clubGoerErrorDetails');
         const clubMessage = document.getElementById('clubMessage');
+        const clubErrorDetails = document.getElementById('clubErrorDetails');
 
         // Toggle Forms
         clubGoerToggle.addEventListener('click', () => {
             clubGoerForm.classList.remove('hidden');
             clubForm.classList.add('hidden');
-            clubGoerToggle.classList.add('bg-purple-600', 'text-white');
-            clubGoerToggle.classList.remove('bg-zinc-800', 'text-zinc-300');
-            clubToggle.classList.add('bg-zinc-800', 'text-zinc-300');
-            clubToggle.classList.remove('bg-purple-600', 'text-white');
         });
 
         clubToggle.addEventListener('click', () => {
             clubForm.classList.remove('hidden');
             clubGoerForm.classList.add('hidden');
-            clubToggle.classList.add('bg-purple-600', 'text-white');
-            clubToggle.classList.remove('bg-zinc-800', 'text-zinc-300');
-            clubGoerToggle.classList.add('bg-zinc-800', 'text-zinc-300');
-            clubGoerToggle.classList.remove('bg-purple-600', 'text-white');
         });
 
         // Club-goer Form Submission
@@ -139,13 +124,17 @@
                 if (response.ok) {
                     clubGoerMessage.textContent = 'Form data saved successfully!';
                     clubGoerMessage.className = 'message success';
+                    clubGoerErrorDetails.textContent = '';
                 } else {
-                    clubGoerMessage.textContent = 'Failed to save form data. Please try again.';
+                    const errorData = await response.json();
+                    clubGoerMessage.textContent = 'Failed to save form data.';
                     clubGoerMessage.className = 'message error';
+                    clubGoerErrorDetails.textContent = JSON.stringify(errorData, null, 2);
                 }
             } catch (error) {
-                clubGoerMessage.textContent = 'An error occurred. Please try again.';
+                clubGoerMessage.textContent = 'An error occurred.';
                 clubGoerMessage.className = 'message error';
+                clubGoerErrorDetails.textContent = error.toString();
             } finally {
                 clubGoerMessage.style.display = 'block';
             }
@@ -168,13 +157,17 @@
                 if (response.ok) {
                     clubMessage.textContent = 'Form data saved successfully!';
                     clubMessage.className = 'message success';
+                    clubErrorDetails.textContent = '';
                 } else {
-                    clubMessage.textContent = 'Failed to save form data. Please try again.';
+                    const errorData = await response.json();
+                    clubMessage.textContent = 'Failed to save form data.';
                     clubMessage.className = 'message error';
+                    clubErrorDetails.textContent = JSON.stringify(errorData, null, 2);
                 }
             } catch (error) {
-                clubMessage.textContent = 'An error occurred. Please try again.';
+                clubMessage.textContent = 'An error occurred.';
                 clubMessage.className = 'message error';
+                clubErrorDetails.textContent = error.toString();
             } finally {
                 clubMessage.style.display = 'block';
             }
