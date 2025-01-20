@@ -15,13 +15,28 @@
             justify-content: center;
             background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
             background-size: 4px 4px;
-            background-color: #0F0E17; /* Dark background */
+            background-color: #0F0E17;
         }
         .input-icon {
             position: absolute;
             left: 1rem;
             top: 50%;
             transform: translateY(-50%);
+        }
+        .message {
+            display: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .message.success {
+            background-color: #4caf50;
+            color: white;
+        }
+        .message.error {
+            background-color: #f44336;
+            color: white;
         }
     </style>
 </head>
@@ -60,6 +75,7 @@
             <button type="submit" class="w-full h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-bold text-xl text-white">
                 Join Waitlist &rarr;
             </button>
+            <div id="clubGoerMessage" class="message"></div>
         </form>
 
         <!-- Club Form -->
@@ -76,6 +92,7 @@
             <button type="submit" class="w-full h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-bold text-xl text-white">
                 Join Waitlist &rarr;
             </button>
+            <div id="clubMessage" class="message"></div>
         </form>
     </div>
 
@@ -84,8 +101,10 @@
         const clubToggle = document.getElementById('clubToggle');
         const clubGoerForm = document.getElementById('clubGoerForm');
         const clubForm = document.getElementById('clubForm');
+        const clubGoerMessage = document.getElementById('clubGoerMessage');
+        const clubMessage = document.getElementById('clubMessage');
 
-        // Toggle forms
+        // Toggle Forms
         clubGoerToggle.addEventListener('click', () => {
             clubGoerForm.classList.remove('hidden');
             clubForm.classList.add('hidden');
@@ -104,44 +123,60 @@
             clubGoerToggle.classList.remove('bg-purple-600', 'text-white');
         });
 
-        // Club-goer form submission
+        // Club-goer Form Submission
         clubGoerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const fullName = e.target.fullName.value;
             const email = e.target.email.value;
 
-            const response = await fetch('https://jiiajoxh2k.execute-api.eu-north-1.amazonaws.com/dev/add_Clubgoer', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ fullName, email }),
-            });
+            try {
+                const response = await fetch('https://jiiajoxh2k.execute-api.eu-north-1.amazonaws.com/dev/add_Clubgoer', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ fullName, email }),
+                });
 
-            if (response.ok) {
-                alert('Club-goer successfully added!');
-                clubGoerForm.reset();
-            } else {
-                alert('Failed to add Club-goer.');
+                if (response.ok) {
+                    clubGoerMessage.textContent = 'Form data saved successfully!';
+                    clubGoerMessage.className = 'message success';
+                } else {
+                    clubGoerMessage.textContent = 'Failed to save form data. Please try again.';
+                    clubGoerMessage.className = 'message error';
+                }
+            } catch (error) {
+                clubGoerMessage.textContent = 'An error occurred. Please try again.';
+                clubGoerMessage.className = 'message error';
+            } finally {
+                clubGoerMessage.style.display = 'block';
             }
         });
 
-        // Club form submission
+        // Club Form Submission
         clubForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const clubName = e.target.clubName.value;
             const email = e.target.email.value;
             const pocPhone = e.target.pocPhone.value;
 
-            const response = await fetch('https://jiiajoxh2k.execute-api.eu-north-1.amazonaws.com/dev/add_Clubgoer', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ clubName, email, pocPhone }),
-            });
+            try {
+                const response = await fetch('https://jiiajoxh2k.execute-api.eu-north-1.amazonaws.com/dev/add_Clubgoer', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ clubName, email, pocPhone }),
+                });
 
-            if (response.ok) {
-                alert('Club successfully added!');
-                clubForm.reset();
-            } else {
-                alert('Failed to add Club.');
+                if (response.ok) {
+                    clubMessage.textContent = 'Form data saved successfully!';
+                    clubMessage.className = 'message success';
+                } else {
+                    clubMessage.textContent = 'Failed to save form data. Please try again.';
+                    clubMessage.className = 'message error';
+                }
+            } catch (error) {
+                clubMessage.textContent = 'An error occurred. Please try again.';
+                clubMessage.className = 'message error';
+            } finally {
+                clubMessage.style.display = 'block';
             }
         });
     </script>
