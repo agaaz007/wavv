@@ -98,15 +98,29 @@
         const clubErrorDetails = document.getElementById('clubErrorDetails');
 
         // Toggle Forms
-        clubGoerToggle.addEventListener('click', () => {
-            clubGoerForm.classList.remove('hidden');
-            clubForm.classList.add('hidden');
-        });
+clubGoerToggle.addEventListener('click', () => {
+    // Show Club-goer Form
+    clubGoerForm.classList.remove('hidden');
+    clubForm.classList.add('hidden');
 
-        clubToggle.addEventListener('click', () => {
-            clubForm.classList.remove('hidden');
-            clubGoerForm.classList.add('hidden');
-        });
+    // Update Toggle Button Styles
+    clubGoerToggle.classList.add('bg-purple-600', 'text-white');
+    clubGoerToggle.classList.remove('bg-zinc-800', 'text-zinc-300');
+    clubToggle.classList.add('bg-zinc-800', 'text-zinc-300');
+    clubToggle.classList.remove('bg-purple-600', 'text-white');
+});
+
+clubToggle.addEventListener('click', () => {
+    // Show Club Form
+    clubForm.classList.remove('hidden');
+    clubGoerForm.classList.add('hidden');
+
+    // Update Toggle Button Styles
+    clubToggle.classList.add('bg-purple-600', 'text-white');
+    clubToggle.classList.remove('bg-zinc-800', 'text-zinc-300');
+    clubGoerToggle.classList.add('bg-zinc-800', 'text-zinc-300');
+    clubGoerToggle.classList.remove('bg-purple-600', 'text-white');
+});
 
         // Club-goer Form Submission
         clubGoerForm.addEventListener('submit', async (e) => {
