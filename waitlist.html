@@ -101,56 +101,32 @@
         const clubToggle = document.getElementById('clubToggle');
         const clubGoerForm = document.getElementById('clubGoerForm');
         const clubForm = document.getElementById('clubForm');
-
+    
         clubGoerToggle.addEventListener('click', () => {
+            // Show Club-goer Form
             clubGoerForm.classList.remove('hidden');
             clubForm.classList.add('hidden');
+    
+            // Update Toggle Button Styles
+            clubGoerToggle.classList.add('bg-purple-600', 'text-white');
+            clubGoerToggle.classList.remove('bg-zinc-800', 'text-zinc-300');
+            clubToggle.classList.add('bg-zinc-800', 'text-zinc-300');
+            clubToggle.classList.remove('bg-purple-600', 'text-white');
         });
-
+    
         clubToggle.addEventListener('click', () => {
+            // Show Club Form
             clubForm.classList.remove('hidden');
             clubGoerForm.classList.add('hidden');
-        });
-
-        // Club-goer Form Submission
-        clubGoerForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const fullName = e.target.fullName.value;
-            const email = e.target.email.value;
-
-            const response = await fetch('https://jiiajoxh2k.execute-api.eu-north-1.amazonaws.com/dev/add_Clubgoer', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ fullName, email }),
-            });
-
-            if (response.ok) {
-                alert('Club-goer successfully added!');
-            } else {
-                alert('Failed to add Club-goer.');
-            }
-        });
-
-        // Club Form Submission
-        clubForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const clubName = e.target.clubName.value;
-            const email = e.target.email.value;
-            const pocPhone = e.target.pocPhone.value;
-
-            const response = await fetch('https://jiiajoxh2k.execute-api.eu-north-1.amazonaws.com/dev/add_Club', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ clubName, email, pocPhone }),
-            });
-
-            if (response.ok) {
-                alert('Club successfully added!');
-            } else {
-                alert('Failed to add Club.');
-            }
+    
+            // Update Toggle Button Styles
+            clubToggle.classList.add('bg-purple-600', 'text-white');
+            clubToggle.classList.remove('bg-zinc-800', 'text-zinc-300');
+            clubGoerToggle.classList.add('bg-zinc-800', 'text-zinc-300');
+            clubGoerToggle.classList.remove('bg-purple-600', 'text-white');
         });
     </script>
+    
 </body>
 </html>
 
