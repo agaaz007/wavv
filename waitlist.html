@@ -118,24 +118,16 @@
             const fullName = e.target.fullName.value;
             const email = e.target.email.value;
 
-            try {
-                const response = await fetch('https://<API_GATEWAY_ENDPOINT>/add_Clubgoer', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ fullName, email }),
-                });
+            const response = await fetch('https://jiiajoxh2k.execute-api.eu-north-1.amazonaws.com/dev/add_Clubgoer', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ fullName, email }),
+            });
 
-                if (response.ok) {
-                    alert('Club-goer successfully added!');
-                } else {
-                    const errorData = await response.json();
-                    alert(`Error: ${errorData.message}`);
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
+            if (response.ok) {
+                alert('Club-goer successfully added!');
+            } else {
+                alert('Failed to add Club-goer.');
             }
         });
 
@@ -146,26 +138,22 @@
             const email = e.target.email.value;
             const pocPhone = e.target.pocPhone.value;
 
-            try {
-                const response = await fetch('https://<API_GATEWAY_ENDPOINT>/add_Club', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ clubName, email, pocPhone }),
-                });
+            const response = await fetch('https://jiiajoxh2k.execute-api.eu-north-1.amazonaws.com/dev/add_Club', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ clubName, email, pocPhone }),
+            });
 
-                if (response.ok) {
-                    alert('Club successfully added!');
-                } else {
-                    const errorData = await response.json();
-                    alert(`Error: ${errorData.message}`);
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
+            if (response.ok) {
+                alert('Club successfully added!');
+            } else {
+                alert('Failed to add Club.');
             }
         });
+    </script>
+</body>
+</html>
+
     </script>
 </body>
 </html>
