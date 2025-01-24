@@ -7,19 +7,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-       body {
+       html, body {
            font-family: 'Poppins', sans-serif;
             background: linear-gradient(to bottom, black, #0F0E17, #1A1A2E);
             color: white;
             overflow-x: hidden; 
+            margin: 0;
+    padding: 0;
 }
 
-   .container {
-    max-width: 1280px; /* Set the maximum width */
-    width: 100%; /* Make it adapt to smaller screens */
-    margin: 0 auto; /* Center the container */
-    padding: 0 0; /* Add some padding for smaller screens */
-  }
+ section, .container {
+    max-width: 100%; /* Prevent sections from exceeding the viewport */
+    width: 100%; /* Fit within the screen */
+    margin: 0 auto; /* Center the content */
+}
 
   @media (max-width: 768px) {
     .container {
@@ -88,6 +89,15 @@
                 text-align: left;
                 white-space: nowrap;
         }
+
+        .flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex > * {
+    flex: 1; /* Ensure items shrink appropriately */
+    max-width: 100%; /* Prevent overflow */
+}
 
 
  </style>
