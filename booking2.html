@@ -199,86 +199,100 @@
 
             <!-- Booking Button -->
             <div id="bookingButton" class="fixed bottom-0 left-0 right-0 p-4 transition-all duration-300 bg-gradient-to-t from-black to-transparent md:relative md:mt-8 md:p-0 md:bg-transparent">
-                <button class="w-full bg-gradient-to-r from-purple-600 to-pink-600 py-6 text-lg font-bold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 hover:scale-[1.02] rounded-lg">
-                    Select Tickets
-                </button>
-            </div>
+    <button id="redirectButton" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 py-6 text-lg font-bold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 hover:scale-[1.02] rounded-lg">
+        Select Tickets
+    </button>
+</div>
         </div>
     </div>
 
-    <script>
-        const quantityElementCouple = document.getElementById('quantityCouple');
-        const totalPriceElementCouple = document.getElementById('totalPriceCouple');
-        const decrementBtnCouple = document.getElementById('decrementBtnCouple');
-        const incrementBtnCouple = document.getElementById('incrementBtnCouple');
-        const quantityElementStag = document.getElementById('quantityStag');
-        const totalPriceElementStag = document.getElementById('totalPriceStag');
-        const decrementBtnStag = document.getElementById('decrementBtnStag');
-        const incrementBtnStag = document.getElementById('incrementBtnStag');
-        const bookingButton = document.getElementById('bookingButton').querySelector('button');
+  <script>
+    const quantityElementCouple = document.getElementById('quantityCouple');
+    const totalPriceElementCouple = document.getElementById('totalPriceCouple');
+    const decrementBtnCouple = document.getElementById('decrementBtnCouple');
+    const incrementBtnCouple = document.getElementById('incrementBtnCouple');
+    const quantityElementStag = document.getElementById('quantityStag');
+    const totalPriceElementStag = document.getElementById('totalPriceStag');
+    const decrementBtnStag = document.getElementById('decrementBtnStag');
+    const incrementBtnStag = document.getElementById('incrementBtnStag');
+    const bookingButton = document.getElementById('bookingButton').querySelector('button');
 
-        const couplePriceDiscounted = 1700;
-        const stagPriceDiscounted = 3400;
-        let quantityCouple = 0;
-        let quantityStag = 0;
+    const couplePriceDiscounted = 1700;
+    const stagPriceDiscounted = 3400;
+    let quantityCouple = 0;
+    let quantityStag = 0;
 
-        function updatePrice() {
-            const totalCouple = couplePriceDiscounted * quantityCouple;
-            const totalStag = stagPriceDiscounted * quantityStag;
-            const grandTotal = totalCouple + totalStag;
-            
-            totalPriceElementCouple.textContent = `₹${totalCouple.toLocaleString()}`;
-            totalPriceElementStag.textContent = `₹${totalStag.toLocaleString()}`;
-            
-            if (grandTotal === 0) {
-                bookingButton.textContent = 'Select Tickets';
-                bookingButton.disabled = true;
-            } else {
-                bookingButton.textContent = `Book Now - ₹${grandTotal.toLocaleString()}`;
-                bookingButton.disabled = false;
-            }
+    function updatePrice() {
+        const totalCouple = couplePriceDiscounted * quantityCouple;
+        const totalStag = stagPriceDiscounted * quantityStag;
+        const grandTotal = totalCouple + totalStag;
+
+        totalPriceElementCouple.textContent = `₹${totalCouple.toLocaleString()}`;
+        totalPriceElementStag.textContent = `₹${totalStag.toLocaleString()}`;
+
+        if (grandTotal === 0) {
+            bookingButton.textContent = 'Select Tickets';
+            bookingButton.disabled = true;
+        } else {
+            bookingButton.textContent = `Book Now - ₹${grandTotal.toLocaleString()}`;
+            bookingButton.disabled = false;
         }
+    }
 
-        decrementBtnCouple.addEventListener('click', () => {
-            if (quantityCouple > 0) {
-                quantityCouple--;
-                quantityElementCouple.textContent = quantityCouple;
-                updatePrice();
-            }
-        });
-
-        incrementBtnCouple.addEventListener('click', () => {
-            quantityCouple++;
+    decrementBtnCouple.addEventListener('click', () => {
+        if (quantityCouple > 0) {
+            quantityCouple--;
             quantityElementCouple.textContent = quantityCouple;
             updatePrice();
-        });
+        }
+    });
 
-        decrementBtnStag.addEventListener('click', () => {
-            if (quantityStag > 0) {
-                quantityStag--;
-                quantityElementStag.textContent = quantityStag;
-                updatePrice();
-            }
-        });
+    incrementBtnCouple.addEventListener('click', () => {
+        quantityCouple++;
+        quantityElementCouple.textContent = quantityCouple;
+        updatePrice();
+    });
 
-        incrementBtnStag.addEventListener('click', () => {
-            quantityStag++;
+    decrementBtnStag.addEventListener('click', () => {
+        if (quantityStag > 0) {
+            quantityStag--;
             quantityElementStag.textContent = quantityStag;
             updatePrice();
-        });
+        }
+    });
 
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY > 50;
-            bookingButton.parentElement.classList.toggle('bg-black/80', scrolled);
-            bookingButton.parentElement.classList.toggle('backdrop-blur-md', scrolled);
-            bookingButton.parentElement.classList.toggle('bg-gradient-to-t', !scrolled);
-            bookingButton.parentElement.classList.toggle('from-black', !scrolled);
-            bookingButton.parentElement.classList.toggle('to-transparent', !scrolled);
-        });
+    incrementBtnStag.addEventListener('click', () => {
+        quantityStag++;
+        quantityElementStag.textContent = quantityStag;
+        updatePrice();
+    });
 
-        bookingButton.addEventListener('click', () => {
-            alert('Booking functionality will be implemented!');
-        });
-    </script>
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY > 50;
+        bookingButton.parentElement.classList.toggle('bg-black/80', scrolled);
+        bookingButton.parentElement.classList.toggle('backdrop-blur-md', scrolled);
+        bookingButton.parentElement.classList.toggle('bg-gradient-to-t', !scrolled);
+        bookingButton.parentElement.classList.toggle('from-black', !scrolled);
+        bookingButton.parentElement.classList.toggle('to-transparent', !scrolled);
+    });
+
+    // Add click event for redirection
+    bookingButton.addEventListener('click', () => {
+        const selectedPreference = [];
+        if (quantityCouple > 0) {
+            selectedPreference.push(`Couple Entry: ${quantityCouple}`);
+        }
+        if (quantityStag > 0) {
+            selectedPreference.push(`Stag Entry: ${quantityStag}`);
+        }
+
+        const preferenceString = selectedPreference.join(', ');
+        const encodedPreference = encodeURIComponent(preferenceString);
+
+        // Redirect to details.html with selected preferences as a query parameter
+        window.location.href = `details.html?preference=${encodedPreference}`;
+    });
+</script>
+
 </body>
 </html>
