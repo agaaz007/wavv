@@ -135,12 +135,13 @@
     
 
 <!-- Featured Offers Section -->
+<!-- Featured Offers Section -->
 <section class="container py-24">
     <h2 class="text-5xl font-extrabold mb-10 text-center">Featured Offers</h2>
     <div class="relative">
         <div id="featured-offers" class="w-full flex justify-center">
             <!-- Offer 1 -->
-            <div class="featured-offer active mx-auto">
+            <div class="featured-offer active mx-auto dynamic-flowing-glow">
                 <div class="bg-gradient-to-r from-purple-600/50 to-indigo-600/50 rounded-lg p-10 flex items-center w-[950px] h-[500px]">
                     <!-- Left-Aligned Content -->
                     <div class="flex-1 flex flex-col space-y-4">
@@ -156,7 +157,7 @@
                 </div>
             </div>
             <!-- Offer 2 -->
-            <div class="featured-offer mx-auto">
+            <div class="featured-offer mx-auto dynamic-flowing-glow">
                 <div class="bg-gradient-to-r from-pink-600/50 to-red-600/50 rounded-lg p-10 flex items-center w-[950px] h-[500px]">
                     <!-- Left-Aligned Content -->
                     <div class="flex-1 flex flex-col space-y-4">
@@ -179,6 +180,41 @@
         </div>
     </div>
 </section>
+
+<style>
+/* Add a flowing border glow effect */
+.dynamic-flowing-glow {
+    position: relative;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    background-clip: padding-box;
+    animation: flowing-glow 6s linear infinite;
+}
+
+/* Animation for flowing glowing effect */
+@keyframes flowing-glow {
+    0% {
+        box-shadow: 0 0 15px 3px rgba(138, 43, 226, 0.8), 0 0 0 0 rgba(75, 0, 130, 0);
+        border: 2px solid rgba(138, 43, 226, 0.8);
+    }
+    25% {
+        box-shadow: 0 0 25px 6px rgba(75, 0, 130, 1), 0 0 10px 4px rgba(138, 43, 226, 0.6);
+        border: 2px solid rgba(75, 0, 130, 1);
+    }
+    50% {
+        box-shadow: 0 0 35px 8px rgba(138, 43, 226, 1), 0 0 20px 8px rgba(75, 0, 130, 0.8);
+        border: 2px solid rgba(138, 43, 226, 1);
+    }
+    75% {
+        box-shadow: 0 0 25px 6px rgba(75, 0, 130, 1), 0 0 10px 4px rgba(138, 43, 226, 0.6);
+        border: 2px solid rgba(75, 0, 130, 1);
+    }
+    100% {
+        box-shadow: 0 0 15px 3px rgba(138, 43, 226, 0.8), 0 0 0 0 rgba(75, 0, 130, 0);
+        border: 2px solid rgba(138, 43, 226, 0.8);
+    }
+}
+</style>
 
 
 <!-- Features Section -->
