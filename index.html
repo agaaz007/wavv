@@ -208,7 +208,39 @@
             </div>
         </div>
     </section>                    
-    
+   <style>
+ .featured-offer {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+    border: 4px solid rgba(128, 0, 255, 0.7);
+    animation: dynamic-border 2s linear infinite;
+    border-radius: 16px;
+    overflow: hidden; /* Prevent content from spilling */
+    background-clip: padding-box; /* Ensure background doesn't extend under border */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.featured-offer > div {
+    margin: 0; /* Remove inner margins */
+    border-radius: 14px; /* Slightly smaller than parent to account for border */
+}
+
+@keyframes dynamic-border {
+    0% {
+        border-color: rgba(128, 0, 255, 0.7);
+    }
+    25% {
+        border-color: rgba(0, 128, 255, 0.7);
+    }
+    50% {
+        border-color: rgba(255, 0, 128, 0.7);
+    }
+    100% {
+        border-color: rgba(128, 0, 255, 0.7);
+    }
+}
+       </style>
 
 <!-- Featured Offers Section -->
 <!-- Featured Offers Section -->
