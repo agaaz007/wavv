@@ -7,17 +7,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom, black, #0F0E17, #1A1A2E);
-            color: white;
-            overflow-x: hidden; 
-        }
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
+       body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+    max-width: 1280px; /* Set the maximum width */
+    width: 100%; /* Make it adapt to smaller screens */
+    margin: 0 auto; /* Center the container */
+    padding: 0 16px; /* Add some padding for smaller screens */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 12px; /* Adjust padding for smaller devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 8px; /* Further adjust padding for very small devices */
+    }
+}
+
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -78,6 +90,7 @@
  </style>
 </head>
 <body class="min-h-screen">
+     <div class="container">
     <!-- Navbar -->
     <header class="fixed top-0 left-0 w-full z-50">
         <nav class="flex items-center justify-between px-8 py-4 backdrop-blur-md bg-white/5 mx-0">
@@ -364,6 +377,8 @@
         // Auto-rotate offers every 5 seconds
         // setInterval(nextOffer, 5000);
     </script>
+ </div>
+
     
 </body>
 </html>
