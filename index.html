@@ -116,23 +116,14 @@
      <div class="container">
 
          <style>
-             /* Ensure navbar has no margin issues */
-header {
-    width: 100%;
-    box-sizing: border-box; /* Include padding/border in the element's width */
-}
-
-/* Adjust spacing and alignment for smaller devices */
-@media (max-width: 768px) {
-    nav {
-        padding-left: 16px; /* Adjust horizontal padding */
-        padding-right: 16px;
-    }
-
-    .space-x-4 > * {
-        margin-right: 8px; /* Adjust spacing between links */
-    }
-}
+          @media (max-width: 640px) {
+            .space-x-4 > * {
+                margin-right: 0.5rem;
+            }
+            .space-x-4 > *:last-child {
+                margin-right: 0;
+            }
+        }
 
 </style>
     <!-- Navbar -->
