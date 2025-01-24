@@ -76,19 +76,7 @@
         animation: scroll 30s linear infinite; /* Adjust timing for speed */
         }
 
-    .featured-offer {
-                display: none;
-                animation: fadeIn 0.5s ease-in-out;
-            }
-            .featured-offer.active {
-                display: block;
-            }
-            #animated-text {
-                display: inline-block;
-                width: 450px;
-                text-align: left;
-                white-space: nowrap;
-        }
+    
 
         .flex {
     display: flex;
@@ -209,37 +197,40 @@
         </div>
     </section>                    
    <style>
- .featured-offer {
-    display: none;
-    animation: fadeIn 0.5s ease-in-out;
-    border: 4px solid rgba(128, 0, 255, 0.7);
-    animation: dynamic-border 2s linear infinite;
+<style>
+/* Featured offer styles */
+.featured-offer {
+    position: relative;
+    overflow: hidden;
     border-radius: 16px;
-    overflow: hidden; /* Prevent content from spilling */
-    background-clip: padding-box; /* Ensure background doesn't extend under border */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
+    margin: 0;
+    padding: 0;
 }
 
 .featured-offer > div {
-    margin: 0; /* Remove inner margins */
-    border-radius: 14px; /* Slightly smaller than parent to account for border */
+    margin: 0;
+    padding: 20px;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    position: relative;
+    animation: borderGlow 3s infinite;
 }
 
-@keyframes dynamic-border {
+@keyframes borderGlow {
     0% {
-        border-color: rgba(128, 0, 255, 0.7);
-    }
-    25% {
-        border-color: rgba(0, 128, 255, 0.7);
+        border-color: rgba(138, 43, 226, 0.8);
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
     }
     50% {
-        border-color: rgba(255, 0, 128, 0.7);
+        border-color: rgba(75, 0, 130, 1);
+        box-shadow: 0 0 25px rgba(75, 0, 130, 0.7);
     }
     100% {
-        border-color: rgba(128, 0, 255, 0.7);
+        border-color: rgba(138, 43, 226, 0.8);
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
     }
 }
+</style>
        </style>
 
 <!-- Featured Offers Section -->
