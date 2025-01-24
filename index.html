@@ -118,29 +118,30 @@
          
 <style>
     /* General Styles */
-    .bg-gradient-to-r {
-        padding: 10px 20px; /* Increased padding for better appearance */
-
-        font-size: 14px; /* Font size for text clarity */
-        border-radius: 24px; /* Maintain rounded corners */
-        min-width: 120px; /* Ensure the button stays wide enough */
-        text-align: center; /* Center the text */
-        white-space: nowrap; /* Force text to stay on one line */
+   
+    /* Navbar-specific styles */
+    header nav .bg-gradient-to-r {
+        padding: 10px 20px;
+        font-size: 14px;
+        border-radius: 24px;
+        min-width: 120px;
+        text-align: center;
+        white-space: nowrap;
     }
 
-    /* Responsive Design for Smaller Screens */
+    /* Responsive Design for Navbar */
     @media (max-width: 640px) {
-        .bg-gradient-to-r {
-            padding: 6px 12px; /* Reduced padding */
-            font-size: 12px; /* Adjust font size */
-            min-width: 100px; /* Ensure minimum width on small screens */
+        header nav .bg-gradient-to-r {
+            padding: 6px 12px;
+            font-size: 12px;
+            min-width: 100px;
         }
 
-        .space-x-4 > * {
+        header nav .space-x-4 > * {
             margin-right: 0.5rem;
         }
 
-        .space-x-4 > *:last-child {
+        header nav .space-x-4 > *:last-child {
             margin-right: 0;
         }
     }
