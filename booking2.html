@@ -277,21 +277,42 @@
     });
 
     // Add click event for redirection
-    bookingButton.addEventListener('click', () => {
-        const selectedPreference = [];
-        if (quantityCouple > 0) {
-            selectedPreference.push(`Couple Entry: ${quantityCouple}`);
-        }
-        if (quantityStag > 0) {
-            selectedPreference.push(`Stag Entry: ${quantityStag}`);
-        }
+    // bookingButton.addEventListener('click', () => {
+    //     const selectedPreference = [];
+    //     if (quantityCouple > 0) {
+    //         selectedPreference.push(`Couple Entry: ${quantityCouple}`);
+    //     }
+    //     if (quantityStag > 0) {
+    //         selectedPreference.push(`Stag Entry: ${quantityStag}`);
+    //     }
 
-        const preferenceString = selectedPreference.join(', ');
-        const encodedPreference = encodeURIComponent(preferenceString);
+    //     const preferenceString = selectedPreference.join(', ');
+    //     const encodedPreference = encodeURIComponent(preferenceString);
 
-        // Redirect to details.html with selected preferences as a query parameter
-        window.location.href = `details.html?preference=${encodedPreference}`;
-    });
+    //     // Redirect to details.html with selected preferences as a query parameter
+    //     window.location.href = `details.html?preference=${encodedPreference}`;
+    // });
+
+    // Add click event for redirection
+bookingButton.addEventListener('click', () => {
+    // Show alert
+    alert('Booking functionality will be implemented soon!');
+
+    const selectedPreference = [];
+    if (quantityCouple > 0) {
+        selectedPreference.push(`Couple Entry: ${quantityCouple}`);
+    }
+    if (quantityStag > 0) {
+        selectedPreference.push(`Stag Entry: ${quantityStag}`);
+    }
+
+    const preferenceString = selectedPreference.join(', ');
+    const encodedPreference = encodeURIComponent(preferenceString);
+
+    // Redirect to details.html with selected preferences as a query parameter
+    window.location.href = `details.html?preference=${encodedPreference}`;
+});
+
 </script>
 
 </body>
